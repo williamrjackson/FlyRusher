@@ -1,3 +1,4 @@
 # Fly Rusher
-Sky Rusher clone
+Sky Rusher clone    
+
 ![sample](fly.gif)

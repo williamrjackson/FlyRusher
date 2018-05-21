@@ -30,9 +30,9 @@ public class ShipMovement : MonoBehaviour {
             m_bHasBeenTouching = false;
         }
         Vector2 lerpPos = Vector2.Lerp(new Vector2(transform.position.x, transform.position.y), m_TargetXY, snapSpeed);
-        transform.eulerAngles = new Vector3(Remap(transform.position.y - m_TargetXY.y, -yRange, yRange, -55, 45), 
+        transform.eulerAngles = new Vector3(Remap(transform.position.y - m_TargetXY.y, -yRange, yRange, -45, 45), 
                                             transform.eulerAngles.y, 
-                                            Remap(transform.position.x - m_TargetXY.x, -xRange, xRange, -45, 45));
+                                            Remap(transform.position.x - m_TargetXY.x, -xRange, xRange, -60, 60));
         transform.position = new Vector3(lerpPos.x, lerpPos.y, transform.position.z);
 	}
 
