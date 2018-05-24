@@ -26,15 +26,15 @@ public class ShipMovement : MonoBehaviour {
                 m_bHasBeenTouching = true;
                 m_InitialXY = new Vector2(ship.position.x, ship.position.y);
             }
-            m_TargetXY = new Vector3(m_InitialXY.x + touchAxisControl.GetAxis("Horizontal") * xRange,
-                                     m_InitialXY.y + touchAxisControl.GetAxis("Vertical") * yRange);
+            m_TargetXY = new Vector3(Mathf.Clamp(m_InitialXY.x + touchAxisControl.GetAxis("Horizontal") * xRange, -xRange, xRange),
+                                     Mathf.Clamp(m_InitialXY.y + touchAxisControl.GetAxis("Vertical") * yRange, -yRange, yRange));
         }
         else
         {
             m_bHasBeenTouching = false;
         }
         Vector2 lerpPos = Vector2.Lerp(new Vector2(ship.position.x, ship.position.y), m_TargetXY, snapSpeed);
-        ship.eulerAngles = new Vector3(Remap(ship.position.y - m_TargetXY.y, -yRange, yRange, -60, 60), 
+        transform.eulerAngles = new Vector3(Remap(ship.position.y - m_TargetXY.y, -yRange, yRange, -60, 60), 
                                             ship.eulerAngles.y, 
                                             Remap(ship.position.x - m_TargetXY.x, -xRange, xRange, -60, 60));
         ship.position = new Vector3(lerpPos.x, lerpPos.y, ship.position.z);
