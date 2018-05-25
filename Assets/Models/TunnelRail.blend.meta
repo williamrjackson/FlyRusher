@@ -1,61 +1,28 @@
 fileFormatVersion: 2
-guid: 762fef29b333bf1448947bce8b05cb7c
-timeCreated: 1526876117
+guid: 22f71add47df79548b6f91543000200e
+timeCreated: 1527232847
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube
-    100004: Cube_001
-    100006: Cube_002
-    100008: Cube_003
-    100010: Cube_004
-    100012: Cube_005
-    100014: Cube_006
-    100016: Cube_007
-    100018: Cube_008
-    400000: //RootNode
-    400002: Cube
-    400004: Cube_001
-    400006: Cube_002
-    400008: Cube_003
-    400010: Cube_004
-    400012: Cube_005
-    400014: Cube_006
-    400016: Cube_007
-    400018: Cube_008
-    2100000: Material
-    2100002: unnamed
-    2300000: //RootNode
-    2300002: Cube
-    2300004: Cube_001
-    2300006: Cube_002
-    2300008: Cube_003
-    2300010: Cube_004
-    2300012: Cube_005
-    2300014: Cube_006
-    2300016: Cube_007
-    2300018: Cube_008
-    3300000: //RootNode
-    3300002: Cube
-    3300004: Cube_001
-    3300006: Cube_002
-    3300008: Cube_003
-    3300010: Cube_004
-    3300012: Cube_005
-    3300014: Cube_006
-    3300016: Cube_007
-    3300018: Cube_008
-    4300000: Cube
-    4300002: Cube_008
-    4300004: Cube_007
-    4300006: Cube_006
-    4300008: Cube_005
-    4300010: Cube_004
-    4300012: Cube_003
-    4300014: Cube_002
-    4300016: Cube_001
+    100000: Cube
+    100002: NurbsPath
+    100004: NurbsPath_001
+    100006: //RootNode
+    400000: Cube
+    400002: NurbsPath
+    400004: NurbsPath_001
+    400006: //RootNode
+    2100000: unnamed
+    2300000: Cube
+    2300002: NurbsPath
+    2300004: NurbsPath_001
+    3300000: Cube
+    3300002: NurbsPath
+    3300004: NurbsPath_001
+    4300000: NurbsPath_001
+    4300002: NurbsPath
+    4300004: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
