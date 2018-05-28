@@ -2,30 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchAxisCtrl : MonoBehaviour {
+public class TouchAxisCtrl : MonoBehaviour
+{
     public bool spawnOnTouch;
     public Transform node;
-    public float touchArea = 1.25f;
-    public float nodeRange = 1f;
+    [Range (0f, 1f)]
+    public float touchArea = .25f;
+    [Range(0f, 1f)]
+    public float nodeRange = .25f;
+    public float chase = 100;
 
     int m_CapturedTouch = -1;
     Vector2 m_Axis;
     Vector3 m_InitialScale;
-    //Camera m_MainCamera;
-    //Camera m_JoyCamera;
-	
+    Vector2 velRef = Vector2.zero;
+
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
         if (node.parent != transform)
         {
             node.parent = transform;
         }
         node.position = transform.position;
         m_InitialScale = transform.localScale;
+        
         Reset();
-	}
+    }
 
-    void Update () {
+    void Update()
+    {
         // Get the mouse position - this is for testing. 
         // If not in the unity editor, get the touch position. Either only care about a touch in the right zone, 
         // or use the spawn option and only care about the first touch.
@@ -35,10 +41,10 @@ public class TouchAxisCtrl : MonoBehaviour {
             for (int i = 0; i < Input.touchCount; ++i)
             {
                 if ((!spawnOnTouch && (Input.GetTouch(i).phase == TouchPhase.Began) && 
-                    (GetPointDistance(m_JoyCamera.ScreenToWorldPoint(Input.GetTouch(i).position)) < GetScaledParimeter(touchArea))) 
+                    (GetPointDistance(Input.GetTouch(i).position) < GetScaledParimeter(touchArea))) 
                     || (spawnOnTouch && Input.GetTouch(i).phase == TouchPhase.Began))
                 {
-                    CaptureTouch(i, m_JoyCamera.ScreenToWorldPoint(Input.GetTouch(i).position));
+                    CaptureTouch(i, Input.GetTouch(i).position);
                 }
             }
         }
@@ -50,7 +56,7 @@ public class TouchAxisCtrl : MonoBehaviour {
             }
             else
             {
-                HandleValidTouch(m_JoyCamera.ScreenToWorldPoint(Input.GetTouch(m_CapturedTouch).position));
+                HandleValidTouch(Input.GetTouch(m_CapturedTouch).position);
             }
         }
 #else
@@ -83,7 +89,8 @@ public class TouchAxisCtrl : MonoBehaviour {
         {
             node.position = currentPos;
         }
-        m_Axis = (node.localPosition - Vector3.zero).normalized * Remap(GetPointDistance(currentPos), 0, GetScaledParimeter(touchArea), 0, 1);
+        m_Axis = node.localPosition.normalized * Remap(GetPointDistance(currentPos), 0, GetScaledParimeter(touchArea), 0, 1);
+        transform.position = Vector2.SmoothDamp(transform.position, currentPos, ref velRef, chase, 1000, Time.deltaTime);
     }
 
     void CaptureTouch(int touchIndex, Vector2 touchPos)
@@ -101,8 +108,7 @@ public class TouchAxisCtrl : MonoBehaviour {
         {
             transform.localScale = Vector3.zero;
         }
-        node.position = transform.position;
-        m_Axis = Vector2.zero;
+        ZeroNode();
         m_CapturedTouch = -1;
     }
 
@@ -118,7 +124,7 @@ public class TouchAxisCtrl : MonoBehaviour {
     }
     float GetScaledParimeter(float parimeter)
     {
-        return parimeter * (transform.localScale.magnitude / 2);
+        return parimeter * Mathf.Max(Screen.width, Screen.height) * (transform.localScale.magnitude / 2);
     }
     float Remap(float val, float srcMin, float srcMax, float destMin, float destMax)
     {
@@ -130,7 +136,11 @@ public class TouchAxisCtrl : MonoBehaviour {
     {
         return (m_CapturedTouch > -1);
     }
-
+    public void ZeroNode()
+    {
+        node.position = transform.position;
+        m_Axis = Vector2.zero;
+    }
     public Vector2 GetAxis()
     {
         return m_Axis;
@@ -141,7 +151,7 @@ public class TouchAxisCtrl : MonoBehaviour {
             return m_Axis.x;
         else if (vertOrHorizontal == "Vertical")
             return m_Axis.y;
-        if (vertOrHorizontal == "InverseHorizontal")
+        else if (vertOrHorizontal == "InverseHorizontal")
             return Remap(m_Axis.x, -1, 1, 1, -1);
         else if (vertOrHorizontal == "InverseVertical")
             return Remap(m_Axis.y, -1, 1, 1, -1);

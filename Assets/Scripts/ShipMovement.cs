@@ -10,25 +10,20 @@ public class ShipMovement : MonoBehaviour {
     public float xRange = 4f;
     public float yRange = 4f;
 
-    private bool m_bHasBeenTouching;
     private Vector2 m_InitialXY;
     Vector2 m_TargetXY;
     
+    void Start()
+    {
+        float range = Mathf.Min(Screen.width, Screen.height) / 4;
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (touchAxisControl.IsTouching())
         {
-            if (!m_bHasBeenTouching)
-            {
-                m_bHasBeenTouching = true;
-                m_InitialXY = new Vector2(ship.localPosition.x, ship.localPosition.y);
-            }
-            m_TargetXY = new Vector3(Mathf.Clamp(m_InitialXY.x + touchAxisControl.GetAxis("Horizontal") * xRange, -xRange, xRange),
-                                     Mathf.Clamp(m_InitialXY.y + touchAxisControl.GetAxis("Vertical") * yRange, -yRange, yRange));
-        }
-        else
-        {
-            m_bHasBeenTouching = false;
+            m_TargetXY = new Vector3(Mathf.Clamp(ship.localPosition.x + touchAxisControl.GetAxis("Horizontal") , -xRange, xRange),
+                                     Mathf.Clamp(ship.localPosition.y + touchAxisControl.GetAxis("Vertical") , -yRange, yRange));
         }
         Vector2 lerpPos = Vector2.Lerp(new Vector2(ship.localPosition.x, ship.localPosition.y), m_TargetXY, snapSpeed);
         ship.localEulerAngles = new Vector3(Remap(ship.localPosition.y - m_TargetXY.y, -yRange, yRange, -30, 30), 
