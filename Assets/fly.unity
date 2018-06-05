@@ -161,9 +161,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnOnTouch: 1
   node: {fileID: 1668202777}
-  touchArea: 0.25
-  nodeRange: 0.25
-  chase: 0.3
+  touchArea: 0.402
+  nodeRange: 0.408
+  chase: 0.35
+--- !u!1 &32187788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 32187789}
+  - component: {fileID: 32187790}
+  m_Layer: 0
+  m_Name: Cameras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &32187789
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32187788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 988867987}
+  m_Father: {fileID: 1738669778}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32187790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32187788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51fa95b36b34aa4ab123493a8354e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testProperties:
+    angle: 0
+    strength: 0.05
+    speed: 2.92
+    duration: 1
+    dampingPercent: 0.548
+    noisePercent: 0.352
 --- !u!4 &429313258 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5494ad4aa5d0456479c9ef524286ea0b, type: 3}
@@ -241,7 +289,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.023162842
+        value: 0.016403198
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -452,6 +500,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.642033, y: 1.62, z: 0.52}
   m_Center: {x: -0.06, y: -0.00000005238983, z: -0.46369773}
+--- !u!114 &730131211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 730131206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2f45aa909459a40b9e9ee4b923e401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraShake: {fileID: 32187790}
 --- !u!1 &892934777
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +585,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.023162842
+        value: 0.016403198
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -647,7 +707,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.013008118
+        value: 0.006248474
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -740,7 +800,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908558297}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -824,7 +884,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -842,12 +902,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988867983}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.7, y: -0, z: -0}
-  m_LocalScale: {x: 5.805178, y: 5.814711, z: 2.9168987}
+  m_LocalRotation: {x: -0.0000001695007, y: -0.7071069, z: -0.000000028870996, w: 0.7071067}
+  m_LocalPosition: {x: 0.70000875, y: 0, z: 0}
+  m_LocalScale: {x: 2.9169185, y: 5.8147116, z: 5.805198}
   m_Children: []
-  m_Father: {fileID: 1738669778}
-  m_RootOrder: 1
+  m_Father: {fileID: 32187789}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1162313014
 GameObject:
@@ -958,7 +1018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1738669778}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!199 &1418027047
 ParticleSystemRenderer:
@@ -1074,7 +1134,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -32189875
+  randomSeed: -448479553
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4419,7 +4479,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668202776}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4520,7 +4580,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.023162842
+        value: 0.016403198
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -4815,7 +4875,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.013008118
+        value: 0.006248474
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -4896,6 +4956,7 @@ MonoBehaviour:
   touchAxisControl: {fileID: 28023649}
   xRange: 3.5
   yRange: 3.5
+  pitchAndRollRange: {x: 25, y: 45}
 --- !u!4 &2138826899
 Transform:
   m_ObjectHideFlags: 0

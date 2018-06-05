@@ -9,6 +9,7 @@ public class ShipMovement : MonoBehaviour {
     public TouchAxisCtrl touchAxisControl;
     public float xRange = 4f;
     public float yRange = 4f;
+    public Vector2 pitchAndRollRange = new Vector2(45, 45);
 
     private Vector2 m_InitialXY;
     Vector2 m_TargetXY;
@@ -26,9 +27,9 @@ public class ShipMovement : MonoBehaviour {
                                      Mathf.Clamp(ship.localPosition.y + touchAxisControl.GetAxis("Vertical") , -yRange, yRange));
         }
         Vector2 lerpPos = Vector2.Lerp(new Vector2(ship.localPosition.x, ship.localPosition.y), m_TargetXY, snapSpeed);
-        ship.localEulerAngles = new Vector3(Remap(ship.localPosition.y - m_TargetXY.y, -yRange, yRange, -30, 30), 
+        ship.localEulerAngles = new Vector3(Remap(ship.localPosition.y - m_TargetXY.y, -1, 1, -Mathf.Abs(pitchAndRollRange.x), Mathf.Abs(pitchAndRollRange.x)), 
                                             ship.localEulerAngles.y, 
-                                            Remap(ship.localPosition.x - m_TargetXY.x, -xRange, xRange, -90, 90));
+                                            Remap(ship.localPosition.x - m_TargetXY.x, -1, 1, -Mathf.Abs(pitchAndRollRange.y), Mathf.Abs(pitchAndRollRange.y)));
         ship.localPosition = new Vector3(lerpPos.x, lerpPos.y, ship.localPosition.z);
     }
 
