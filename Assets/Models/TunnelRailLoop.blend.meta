@@ -10,24 +10,34 @@ ModelImporter:
     100004: NurbsPath_001
     100006: //RootNode
     100008: Cube_001
+    100010: Advance
+    100012: Playspace
     400000: Cube
     400002: NurbsPath
     400004: NurbsPath_001
     400006: //RootNode
     400008: Cube_001
+    400010: Advance
+    400012: Playspace
     2100000: unnamed
     2300000: Cube
     2300002: NurbsPath
     2300004: NurbsPath_001
     2300006: Cube_001
+    2300008: Advance
+    2300010: Playspace
     3300000: Cube
     3300002: NurbsPath
     3300004: NurbsPath_001
     3300006: Cube_001
+    3300008: Advance
+    3300010: Playspace
     4300000: NurbsPath_001
     4300002: NurbsPath
     4300004: Cube
     4300006: Cube_001
+    4300008: Advance
+    4300010: Playspace
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
