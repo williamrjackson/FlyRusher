@@ -4724,7 +4724,7 @@ MonoBehaviour:
   touchAxisControl: {fileID: 28023649}
   xRange: 0.5
   yRange: 0.5
-  pitchAndRollRange: {x: 55, y: 65}
+  pitchAndRollRange: {x: 55, y: 80}
 --- !u!1 &1390219835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,9 +5065,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclesPrefabs:
-  - {fileID: 1505280235866452, guid: 12131245c2e5a6a40abbc96cc2834109, type: 2}
+  - {fileID: 1222631422660602, guid: 477727bd7b8f9d242b5d51f95a9f7173, type: 2}
   - {fileID: 1144473244400724, guid: 18cce4823e37dae4cadc0ca50709429a, type: 2}
   - {fileID: 1505280235866452, guid: 12131245c2e5a6a40abbc96cc2834109, type: 2}
   - {fileID: 1841990614103270, guid: 5b6bb06b38de208418c7cce3520943c8, type: 2}
+  - {fileID: 1222631422660602, guid: 1ea1404ed83654c4086ea9651aa6c3ef, type: 2}
   dropInterval: 3
   lifetime: 10
